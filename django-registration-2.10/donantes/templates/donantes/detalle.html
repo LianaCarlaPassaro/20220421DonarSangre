@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% include 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+    th{
+       text-align: left;
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 5px;
+       font-family: Gotham, sans-serif;
+       }
+
+    td{
+        text-transform: uppercase;
+       }
+   table, td{
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 5px;
+       font-family: Gotham, sans-serif;
+      text-align: center;
+
+   }
+   /*renglones pares*/
+   tr:nth-child(even){
+        background-color: #FFF0F0;
+    }
+
+   /*renglones impares*/
+   tr:nth-child(odd){
+        background-color: #fff;
+   }
+   caption{
+       color:#FA6780;
+       font-family: Gotham, sans-serif;
+       font-size: 24px;
+       line-height: 70px;
+       text-align: center;
+        width: 100%
+   }
+
+
+</style>
+<body>
+<div id="content" , name="content" , class="main">
+    <section>
+        <table>
+            <caption>Detalle Donante Inscripto:</caption>
+            <tr>
+                <th>Nombre y Apellido:</th>
+                <td>{{detalle_don_insc.nombre}} {{detalle_don_insc.apellido}}</td>
+            </tr>
+
+            <tr>
+                <th>Documento:</th>
+                <td> {{detalle_don_insc.tipoDNI}} {{detalle_don_insc.dni}}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Nacimiento:</th>
+                <td>{{detalle_don_insc.fechaNacimiento}}</td>
+            </tr>
+            <tr>
+                <th>Sexo:</th>
+                <td>{{detalle_don_insc.sexo}}</td>
+            </tr>
+            <tr>
+                <th>Tipo/Factor Sanguíneo:</th>
+                <td>{{detalle_don_insc.tipoSangre.gruposFactorDescripcion}}</td>
+            </tr>
+            <tr>
+                <th>Domicilio:</th>
+                <td>{{detalle_don_insc.domicilio}}, {{detalle_don_insc.ciudad.nombreCiudad}}</td>
+            </tr>
+            <tr>
+                <th>Mail:</th>
+                <td>{{detalle_don_insc.mail}}</td>
+            </tr>
+            <tr>
+                <th>Fecha Ultima Extracción:</th>
+                <td>{{detalle_don_insc.fechaUltimaExtraccion}}</td>
+            </tr>
+        </table>
+    </section>
+    <br/>
+<a href="javascript:history.go(-1)">Volver</a>
+</div>
+</body>
+{% endblock %}
+
+{% include 'footer.html' %}
+</html>

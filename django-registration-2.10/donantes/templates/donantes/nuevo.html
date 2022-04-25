@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/css/estilos.css" rel="stylesheet"/>
+    <title>Ingreso Información de Reposición para Donantes</title>
+</head>
+
+<body>
+<header>
+    <!--<img src="imagenes/images.jfif" alt='Logo ContáConmigo' width="80px" title="Logo ContáConmigo" />-->
+    <h1>ContáConmigo</h1>
+    <h5>Información Donantes</h5>
+</header>
+
+<form method="POST">
+    <section>
+        <h3>Complete la información requerida de Donantes Voluntarios:</h3>
+        <br/>
+        <table>
+            {{formaDonanteAInscribir}}
+        </table>
+        <button type="submit">Guardar</button>
+        <button type="reset">Limpiar</button>
+        {% csrf_token %}
+        <br/>
+        <a href="javascript:history.go(-1)">Volver</a>
+    </section>
+</form>
+
+<footer>
+    <h2>
+        <a href="https://www.facebook.com/lis.cpas">Liana Carla Passaro</a>
+    </h2>
+</footer>
+
+</body>
+
+</html>

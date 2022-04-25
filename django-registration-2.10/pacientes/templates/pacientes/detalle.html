@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% include 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+    th{
+       text-align: left;
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 5px;
+       font-family: Gotham, sans-serif;
+       }
+
+    td{
+        text-transform: uppercase;
+       }
+   table, td{
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 5px;
+       font-family: Gotham, sans-serif;
+      text-align: center;
+
+   }
+   /*renglones pares*/
+   tr:nth-child(even){
+        background-color: #FFF0F0;
+    }
+
+   /*renglones impares*/
+   tr:nth-child(odd){
+        background-color: #fff;
+   }
+   caption{
+       color:#FA6780;
+       font-family: Gotham, sans-serif;
+       font-size: 24px;
+       line-height: 70px;
+       text-align: center;
+        width: 100%
+   }
+
+</style>
+<body>
+<div id="content" , name="content" , class="main">
+    <section>
+
+            <table>
+                <caption>Información del Paciente:</caption>
+                <tr>
+                    <th>Nombre y Apellido:</th>
+                    <td>{{detalle_pac.nombre}} {{detalle_pac.apellido}}</td>
+                </tr>
+                <tr>
+                    <th>Documento:</th>
+                    <td>{{detalle_pac.tipoDNI}} {{detalle_pac.dni}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de Nacimiento:</th>
+                    <td>{{detalle_pac.fechaNacimiento}}</td>
+                </tr>
+                <tr>
+                    <th>Teléfono:</th>
+                    <td>{{detalle_pac.telefono}}</td>
+                </tr>
+                <tr>
+                    <th>Tipo/Factor Sanguíneo:</th>
+                    <td>{{detalle_pac.tipoSangre}}</td>
+                </tr>
+                <tr>
+                    <th>Mail:</th>
+                    <td>{{detalle_pac.mail}}</td>
+                </tr>
+                <tr>
+                    <th>Institución:</th>
+                    <td>{{detalle_pac.institucion.nombreInstitucion}} {{detalle_pac.institucion.idCiudad}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha Límite Reposición:</th>
+                    <td>{{detalle_pac.fechaLimite}}</td>
+                </tr>
+                <tr>
+                    <th>Cant. Donantes Requeridos:</th>
+                    <td> {{detalle_pac.cantidadDonantes}}</td>
+                </tr>
+                <tr>
+                    <th>Comentarios:</th>
+                    <td>{{detalle_pac.comentario}}</td>
+                </tr>
+                <tr>
+                    <th>Ha completado la Cantidad de Donantes Requeridos?</th>
+                    <td>{{detalle_pac.completo}}</td>
+            </table>
+
+    </section>
+    <br/>
+    <br/>
+    <a class="botones" href="{% url 'listadoPaciente' %}">Volver</a>
+
+</div>
+</body>
+{% endblock content %}
+
+{% include 'footer.html' %}
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% include 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+   table{
+       width: 100%
+   }
+   table, th, td{
+       border: 1px solid #000;
+       border-collapse: collapse;
+       padding: 5px;
+       font-family: Gotham, sans-serif;
+   }
+   td{
+      text-transform: uppercase;
+   }
+   caption{
+       color:#FA6780;
+       font-family: Gotham, sans-serif;
+       font-size: 24px;
+       line-height: 70px;
+   }
+   th{
+        color: #f1faee;
+        background-color: #FA6780;
+   }
+   /*renglones pares*/
+   tr:nth-child(even){
+        background-color: #FFF0F0;
+    }
+
+   /*renglones impares*/
+   tr:nth-child(odd){
+        background-color: #fff;
+   }
+   .botones{
+        font-family: Gotham, sans-serif;
+        font-size: 14px;
+        color: #000;
+        text-transform: capitalize;
+   }
+  #boton_nuevo{
+    font-family: Gotham, sans-serif;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+  #total-registros{
+    font-family: Gotham, sans-serif;
+    font-size: 14px;
+    text-align: right;
+    font-weight: bold;
+    color: #FA6780;
+}
+
+</style>
+
+<body>
+<div id="content" , name="content" , class="main">
+    <section>
+
+        <table border="2">
+            <caption>Listado Donantes Inscriptos:</caption>
+            <thead>
+            <tr>
+                <th>Nombre y Apellido</th>
+                <th>Sexo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Tipo Sangre</th>
+                <th>Mail</th>
+                <th>Fecha Ultima Extracción</th>
+                <th>Domicilio</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for doninsc in listado_don_inscr %}
+            <tr>
+                <td>{{doninsc.nombre}} {{doninsc.apellido}}</td>
+                <td>{{doninsc.sexo}}</td>
+                <td>{{doninsc.fechaNacimiento}}</td>
+                <td>{{doninsc.tipoSangre.gruposFactorDescripcion}}</td>
+                <td>{{doninsc.mail}}</td>
+                <td>{{doninsc.fechaUltimaExtraccion}}</td>
+                <td>{{doninsc.domicilio}}, {{doninsc.ciudad.nombreCiudad}}, {{doninsc.ciudad.idProvincia.nombreProvincia}}</td>
+
+                <td>
+                    <a class="botones"  href="detalleDonanteInscripto/{{doninsc.id}}">Ver</a>
+                    <a class="botones"  href="editarDonanteInscripto/{{doninsc.id}}">Editar</a>
+                    <a class="botones" href="eliminarDonanteInscripto/{{doninsc.id}}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div id="total-registros">Total Registros: {{cant_don}}</div>
+        <br/>
+        <div id="boton_nuevo">
+            <a href="nuevoDonanteAInscribir">+ Nuevo</a>
+        </div>
+    </section>
+</div>
+</body>
+{% endblock %}
+
+{% include 'footer.html' %}
+</html>
