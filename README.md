@@ -20,7 +20,7 @@ git push origin main --> para empujar los cambios al servidor
 
 
 
-How to use Django crispy forms:
+How to use Django crispy forms: https://ordinarycoders.com/blog/article/render-forms-with-django-crispy-forms
 
 pip install django-crispy-forms in your Django project
 add crispy_forms to the list of installed apps in the settings
