@@ -22,7 +22,7 @@ INSTALLED_APPS = (
     'instituciones',
     'donantes',
     'pacientes',
-
+    'crispy_forms',
 )
 
 DEBUG = True
@@ -70,3 +70,6 @@ SEND_ACTIVATION_EMAIL = True
 REGISTRATION_AUTO_LOGIN = False
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
