@@ -25,7 +25,7 @@ class Donante(models.Model):
     #tipoSangre = models.ForeignKey(GrupoFactor, on_delete=models.SET_NULL, null=True)
     tipoSangre = models.CharField(max_length=255, choices=GRUPO_FACTOR)
     fechaUltimaExtraccion = models.DateField()
-    mail = models.CharField(max_length=255)
+    mail = models.EmailField(max_length=255)
 
 
     def __str__(self):
