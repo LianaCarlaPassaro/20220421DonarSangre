@@ -6,7 +6,7 @@
 {% block content %}
 <style type="text/css">
    table{
-       width: 100%
+       width: 80%
    }
    table, th, td{
        border: 1px solid #000;
@@ -44,7 +44,7 @@
   #boton_nuevo{
     font-family: Gotham, sans-serif;
     font-size: 14px;
-    color: #000;
+    color: #cb9ca1;
     font-weight: bold;
 }
   #total-registros{
@@ -52,7 +52,7 @@
     font-size: 14px;
     text-align: right;
     font-weight: bold;
-    color: #FA6780;
+    color: #ba6b6c
 }
 </style>
 
@@ -84,22 +84,18 @@
                     <td>{{donreq.mail}}</td>
                     <td>{{donreq.comentario}}</td>
                     <td>{{donreq.tipoSangre}}</td>
-
-
                     <td><a class="botones" href="detallePaciente/{{donreq.id}}">Ver</a>
                         <a class="botones" href="editarPaciente/{{donreq.id}}">Editar</a>
                         <a class="botones" href="eliminarPaciente/{{donreq.id}}">Eliminar</a>
                         <a class="botones" href="aplicarNuevaReposicion/{{donreq.id}}">Aplicar</a>
                     </td>
-
                 </tr>
                 {% endfor %}
                 </tbody>
             </table>
+            <div id="total-registros">Total Registros: {{cant_pac}}</div>
         </div>
-        <br/>
-        <div id="total-registros">Total Registros: {{cant_pac}}</div>
-        <br/>
+
         <div id="boton_nuevo"><a href="nuevoPaciente">+ Nuevo</a>
 
         </div>
@@ -107,6 +103,5 @@
 </div>
 </body>
 {% endblock content %}
-
 {% include 'footer.html' %}
 </html>
