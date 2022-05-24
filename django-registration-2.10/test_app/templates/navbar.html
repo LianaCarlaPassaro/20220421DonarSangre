@@ -1,0 +1,55 @@
+{% load i18n %}
+{% block header %}
+<style>
+    /* Modify the background color */
+    .navbar-custom {
+        background-color: #FA6780;
+    }
+
+    /* Modify brand and text color */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-text {
+        color: #000000;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-custom nav-link navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header navbar-collapse">
+            <img src="https://www.familiaysalud.es/sites/default/files/styles/article_image/public/donar_sangre.jpg?itok=4o5vm15J" alt='Logo ContáConmigo' class="d-inline-block align-text-top" width="50px" title="Logo ContáConmigo">
+            <a class="navbar-brand" href="{% url 'index' %}">{% trans "ContàConmigo" %}</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        </div>
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+            <!--<ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+        <ul class="navbar-nav">
+            <li><a class="nav-link" href="listadoPaciente">Listado Pacientes</a></li>
+            <!-- items -->
+            {% if user.is_authenticated %}
+                <li><a class="nav-link" href="listadoDonante">Listado de Donantes Inscriptos</a></li>
+                <li class="dropdown nav-link">
+                    <a class="dropdown-toggle" id="navbarDropdownMenuLink"  aria-expanded="false" aria-haspopup="true"
+                        data-toggle="dropdown" href="{% url 'index' %}">{% trans "Usuario" %}: {{ user.get_username }}<span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'auth_password_change' %}">{% trans "Cambiar Contraseña" %}</a></li>
+                        <li><a href="{% url 'auth_logout' %}">{% trans "Desloguearse" %}</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a class="nav-link navbar-right disabled">{% trans "Usuario" %}: {{ user.get_username }}</a></li>
+                <li><a class="nav-link navbar-right" href="{% url 'auth_password_change' %}">{% trans "Cambiar Contraseña" %}</a></li>
+                <li><a class="nav-link navbar-right" href="{% url 'auth_logout' %}">{% trans "Desloguearse" %}</a></li>-->
+            {%else %}
+                <li><a class="nav-link" href="{% url 'auth_login' %}">{% trans "Loguearse" %}</a></li>
+
+            {% endif %}
+        </ul>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}
