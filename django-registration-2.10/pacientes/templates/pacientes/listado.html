@@ -6,7 +6,7 @@
 {% block content %}
 <style type="text/css">
    table{
-       width: 80%
+       width: 90%
    }
    table, th, td{
        border: 1px solid #000;
@@ -85,9 +85,11 @@
                     <td>{{donreq.comentario}}</td>
                     <td>{{donreq.tipoSangre}}</td>
                     <td><a class="botones" href="detallePaciente/{{donreq.id}}">Ver</a>
+                        {% if user.is_authenticated %}
                         <a class="botones" href="editarPaciente/{{donreq.id}}">Editar</a>
                         <a class="botones" href="eliminarPaciente/{{donreq.id}}">Eliminar</a>
                         <a class="botones" href="aplicarNuevaReposicion/{{donreq.id}}">Aplicar</a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
@@ -95,8 +97,9 @@
             </table>
             <div id="total-registros">Total Registros: {{cant_pac}}</div>
         </div>
-
-        <div id="boton_nuevo"><a href="nuevoPaciente">+ Nuevo</a>
+        {% if user.is_authenticated %}
+            <div id="boton_nuevo"><a href="nuevoPaciente">+ Nuevo</a>
+        {% endif %}
 
         </div>
     </section>

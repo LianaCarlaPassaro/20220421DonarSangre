@@ -27,7 +27,7 @@ class Paciente(models.Model):
     completo = models.BooleanField(default=False)
     telefono = models.CharField(max_length=255)
     tipoSangre = models.CharField(max_length=255, choices=GRUPO_FACTOR)
-    sexo = models.CharField(max_length=1, choices=SEX_OPTIONS)
+    sexo = models.CharField(max_length=1, choices=SEX_OPTIONS, default=SEX_UNSURE)
 
     def __str__(self):
         return f'Nombre: {self.nombre} Apellido: {self.apellido} '

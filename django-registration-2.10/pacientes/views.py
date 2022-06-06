@@ -1,7 +1,11 @@
+import datetime
+
 from django.shortcuts import render
 from pacientes.models import Paciente
 from pacientes.forms import DonanteReposicionForm, EditarPacienteForm, PacienteAsignadoForm
-
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from django.db.models.query_utils import DeferredAttribute
 from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 

@@ -15,6 +15,36 @@
 
     </head>
     <body>
+        <style type="text/css">
+           .button{
+                font-family: Gotham, sans-serif;
+                font-size: 14px;
+                /*color: #FA6780;*/
+                font-weight: bold;
+           }
+           #volver{
+                font-family: Gotham, sans-serif;
+                font-size: 14px;
+                color: #000;
+                font-weight: bold;
+           }
+           table{
+               border: 1px solid #434b4d;
+               color: #434b4d;
+               font-family: Gotham, sans-serif;
+               border-radius:20px 0px 10px 10px;
+               /*border-radius:15px;*/
+           }
+       /*renglones pares*/
+            tr:nth-child(even){
+                background-color: #FFF0F0;
+            }
+       /*renglones impares*/
+            tr:nth-child(odd){
+                background-color: #fff;
+            }
+       </style>
+
         <div id="header">
         {% block header %}
         {% include 'navbar.html' %}

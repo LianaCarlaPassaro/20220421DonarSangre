@@ -18,6 +18,7 @@ class DonanteReposicionForm(ModelForm):
             'fechaNacimiento': forms.DateInput(attrs={'type':'date', 'data-date-format': 'dd-mm-yyyy', 'data-provide': 'datepicker'}, format="%d/%m/%Y"),
             'mail': EmailInput(attrs={'type': 'email'}),
             'fechaLimite': forms.DateInput(attrs={'type':'date', 'data-date-format': 'dd-mm-yyyy', 'data-provide': 'datepicker'}, format="%d/%m/%y"),
+            'sexo': forms.RadioSelect(attrs={'type':'radio'})
         }
 
 class EditarPacienteForm(ModelForm):
@@ -28,6 +29,7 @@ class EditarPacienteForm(ModelForm):
             'fechaNacimiento':  forms.DateInput(format=('%Y-%m-%d'),attrs={'class': 'form-control','placeholder': 'Select a date', 'type': 'date'}),
             'mail': EmailInput(attrs={'type': 'email'}),
             'fechaLimite': forms.DateInput(format=('%Y-%m-%d'),attrs={'class': 'form-control','placeholder': 'Select a date', 'type': 'date'}),
+            'sexo': forms.RadioSelect(attrs={'type': 'radio'})
         }
 class PacienteAsignadoForm(ModelForm):
     class Meta:

@@ -25,6 +25,7 @@
         font-weight: bold;
    }
    table{
+        width: 50%;
        border: 1px solid #434b4d;
        color: #434b4d;
        font-family: Gotham, sans-serif;
@@ -42,28 +43,27 @@
    }
 
 </style>
-
 <body>
-<div id="content" , name="content" , class="main">
-    <form method="POST">
-        <section>
-            <br/>
-            <table>
-                <caption>Edite la información del Paciente:</caption>
-                {{formaPaciente}}
-            </table>
-            <br/>
-            <button type="submit">Guardar</button>
-            <button type="reset">Limpiar</button>
-            <br/>
-            <br/>
-            <br/>
-            <a id="volver" href="{% url 'listadoPaciente' %}">Volver</a>
-            {% csrf_token %}
-        </section>
-    </form>
+    <h5>Edite la información del Paciente:</h5>
+    <div id="content" , name="content" , class="main">
+        <form method="POST">
+            <section>
+                <br/>
+                <table>
+                    {{formaPaciente}}
+                </table>
+                <br/>
+                <button type="submit">Guardar</button>
+                <button type="reset">Limpiar</button>
+                <br/>
+                <br/>
+                <br/>
+                <a id="volver" href="{% url 'listadoPaciente' %}">Volver</a>
+                {% csrf_token %}
+            </section>
+        </form>
 
-</div>
+    </div>
 </body>
 {% endblock content %}
 
